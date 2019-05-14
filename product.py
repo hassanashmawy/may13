@@ -13,6 +13,5 @@ class Product:
         return "I am a product of: {} I do worth more than: {}, P.S: tax rate is: {}".format(self.name, self.base_price, self.tax_class)
 
     def get_total_price(self):
-        print('self.tax_class', int(self.tax_class))
-        # return (self.base_price + (get_tax_list()[int(self.tax_class)] * self.base_price)) * self.quantity
-    
+        return (self.base_price + (get_tax_list()[self.tax_class] * self.base_price)) * self.quantity
+

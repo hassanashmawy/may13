@@ -1,5 +1,5 @@
 from product import Product
-from tax import *
+from tax import get_tax_list
 
 class Shopping_Cart:
 
@@ -39,8 +39,15 @@ class Shopping_Cart:
         return max(self.products,key = lambda a: a.base_price) 
 
 
-products = [Product('p1',10,quantity=2), Product('p2',20), Product('p3',20)]
+products = [
+    Product('p1',10,'tax_exempt',quantity=2), # tax = * 2 * 0 = 0
+    Product('p2',20,tax_class='imported'), # tax = * .2 = 4
+    Product('p3',30) # tax = * .1 = 3
+    ]
 
+######
+### Test
+######
 
 my_sc = Shopping_Cart(products)
 after = my_sc.calc_after_tax()
